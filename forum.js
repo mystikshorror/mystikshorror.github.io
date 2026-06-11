@@ -350,7 +350,8 @@ var categoryLabels = {
     misc:       'Misc'
 };
 
-var preview    = (post.body || '');
+var preview    = (post.body || '').substring(0, 1800) +
+                 (post.body && post.body.length > 1800 ? '\u2026' : '');
     var timeStr    = post.ts ? formatTime(post.ts) : '';
     var catLabel   = categoryLabels[post.category] || post.category || '';
     var replyCount = post.replies || 0;
