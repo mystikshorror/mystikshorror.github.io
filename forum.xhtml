@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="horror forum, paranormal discussion, Mystiks community" />
+<meta name="description" content="Mystiks Community Forum — share your encounters, theories and dread" />
+<meta name="author" content="Mystiks Media" />
+<title>Forum | Mystiks</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="forum.css" />
+<script type="text/javascript" src="scripts.js"></script>
+<link rel="icon" type="image/png" href="images/ico.png" />
+
+<!-- Firebase SDK (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
+<!-- forum.js loaded at bottom of body -->
+</head>
+<body>
+<div id="container">
+
+    <!-- ── Header ── -->
+    <div id="header">
+        <div class="banner-wrap">
+            <img src="images/header.jpg" alt="Mystiks Header" />
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="masthead">
+            <h1><span>M</span>YSTIKS</h1>
+            <p class="tagline">Mitos dan Mistik tanpa drama</p>
+        </div>
+    </div>
+
+    <!-- ── Navigation ── -->
+    <div id="navigation">
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="news.xhtml">News</a></li>
+            <li><a href="teams.xhtml">Meet The Team</a></li>
+            <li><a href="merch.xhtml">Merchandise</a></li>
+            <li><a href="forum.xhtml">Forum</a></li>
+            <li><a href="contact.xhtml">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- ── Main content ── -->
+    <div id="content">
+
+        <!-- Section header + auth bar -->
+        <div class="forum-page-header">
+            <h2>Community Forum</h2>
+            <div class="forum-header-right">
+                <span class="forum-live-badge">
+                    <span class="forum-live-dot"></span>
+                    Live
+                </span>
+                <!-- Logged-out state -->
+                <div id="authBarGuest" class="auth-bar-guest">
+                    <button class="auth-bar-btn" onclick="openAuthModal('login')">Sign In</button>
+                    <button class="auth-bar-btn auth-bar-btn--primary" onclick="openAuthModal('register')">Register</button>
+                </div>
+                <!-- Logged-in state -->
+                <div id="authBarUser" class="auth-bar-user" style="display:none">
+                    <span class="auth-bar-name" id="authBarName"></span>
+                    <button class="auth-bar-btn" onclick="signOut()">Sign Out</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category tabs -->
+        <div class="forum-tabs" id="forumTabs">
+            <button class="forum-tab active" onclick="switchCategory('all', this)">All</button>
+            <button class="forum-tab" onclick="switchCategory('encounters', this)">Encounters</button>
+            <button class="forum-tab" onclick="switchCategory('theories', this)">Theories</button>
+            <button class="forum-tab" onclick="switchCategory('locations', this)">Locations</button>
+            <button class="forum-tab" onclick="switchCategory('artifacts', this)">Artifacts</button>
+            <button class="forum-tab" onclick="switchCategory('misc', this)">Misc</button>
+        </div>
+
+        <!-- Composer: shown when logged in -->
+        <div class="forum-compose" id="forumCompose" style="display:none">
+            <span class="forum-compose-title">&#9670; Post to the Collective</span>
+            <div class="forum-compose-fields">
+                <div class="forum-compose-row">
+                    <input type="text" id="postAuthor" placeholder="Display name" maxlength="40" readonly="readonly" />
+                    <select id="postCategory">
+                        <option value="encounters">Encounters</option>
+                        <option value="theories">Theories</option>
+                        <option value="locations">Locations</option>
+                        <option value="artifacts">Artifacts</option>
+                        <option value="misc">Misc</option>
+                    </select>
+                </div>
+                <input type="text" id="postSubject" placeholder="Subject — what happened, or what you found" maxlength="120" />
+                <textarea id="postBody" placeholder="Describe it. Leave nothing out." maxlength="1800"></textarea>
+                <div class="forum-compose-actions">
+                    <span class="forum-compose-hint" id="charCount">0 / 1800</span>
+                    <button class="forum-submit-btn" id="submitPostBtn" onclick="submitPost()">Post</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Composer gate: shown when logged out -->
+        <div class="forum-gate" id="forumGate">
+            <p class="forum-gate-text">You must be signed in to post.</p>
+            <button class="forum-submit-btn" onclick="openAuthModal('login')">Sign In to Post</button>
+        </div>
+
+        <!-- Sort bar -->
+        <div class="forum-toolbar">
+            <span class="forum-post-count" id="postCountLabel">Loading&#8230;</span>
+            <div class="forum-sort">
+                <button class="forum-sort-btn active" id="sortNew" onclick="setSort('new', this)">Newest</button>
+                <button class="forum-sort-btn" id="sortTop" onclick="setSort('top', this)">Top</button>
+            </div>
+        </div>
+
+        <!-- Post list -->
+        <div class="forum-posts" id="forumPosts">
+            <div class="forum-loading">Summoning threads&#8230;</div>
+        </div>
+
+    </div><!-- /content -->
+
+    <!-- ── Footer ── -->
+    <div id="footer">
+        <p>DISCLAIMER: This website is not the official website of Mystiks Media.
+        Mystiks Media Does Not Exist&#8230; Yet&#8230; This website was developed for the
+        purpose of learning XHTML &amp; CSS only.</p>
+        <p>Copyright &#169; 2026 Mystiks. | Last Updated: June 2026</p>
+        <p>Recommended Browser: Google Chrome | Resolution: 1920&#215;1080</p>
+        <p class="footer-links">
+            <a href="careers.xhtml">Write With Us</a>
+            &#160;|&#160;
+            <a href="tos.xhtml">Terms of Service</a>
+        </p>
+    </div>
+
+</div><!-- /container -->
+
+<!-- ── Auth Modal ── -->
+<div id="authOverlay" class="auth-overlay" onclick="closeAuthModal(event)">
+    <div class="auth-modal">
+
+        <!-- Tabs -->
+        <div class="auth-modal-tabs">
+            <button class="auth-modal-tab active" id="tabLogin"    onclick="switchAuthTab('login')">Sign In</button>
+            <button class="auth-modal-tab"         id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+            <button class="auth-modal-close" onclick="closeAuthModal()"  title="Close">&#10005;</button>
+        </div>
+
+        <!-- Login panel -->
+        <div id="authPanelLogin" class="auth-panel">
+            <p class="auth-panel-hint">Welcome back. Sign in to rejoin the collective.</p>
+            <div class="auth-fields">
+                <input type="email"    id="loginEmail"    class="auth-input" placeholder="Email address" />
+                <input type="password" id="loginPassword" class="auth-input" placeholder="Password" />
+                <div class="auth-error" id="loginError"></div>
+                <button class="auth-submit" id="loginBtn" onclick="doLogin()">Sign In</button>
+            </div>
+            <p class="auth-switch-hint">No account? <button class="auth-link-btn" onclick="switchAuthTab('register')">Register here</button></p>
+        </div>
+
+        <!-- Register panel -->
+        <div id="authPanelRegister" class="auth-panel" style="display:none">
+            <p class="auth-panel-hint">Create an account to post, reply and vote.</p>
+            <div class="auth-fields">
+                <input type="text"     id="regUsername" class="auth-input" placeholder="Display name (shown on posts)" maxlength="30" />
+                <input type="email"    id="regEmail"    class="auth-input" placeholder="Email address" />
+                <input type="password" id="regPassword" class="auth-input" placeholder="Password (min 6 characters)" />
+                <div class="auth-error" id="regError"></div>
+                <button class="auth-submit" id="regBtn" onclick="doRegister()">Create Account</button>
+            </div>
+            <p class="auth-switch-hint">Already registered? <button class="auth-link-btn" onclick="switchAuthTab('login')">Sign in</button></p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Toast -->
+<div id="forum-toast"></div>
+
+<script type="text/javascript" src="forum.js"></script>
+</body>
+</html>
