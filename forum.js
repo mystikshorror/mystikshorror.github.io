@@ -346,12 +346,12 @@ var categoryLabels = {
     encounters: 'Encounters',
     theories:   'Theories',
     locations:  'Locations',
-    artifacts:  'Artifacts',
+    support:  'Support',
     misc:       'Misc'
 };
 
-var preview    = (post.body || '').substring(0, 1800) +
-                 (post.body && post.body.length > 1800 ? '\u2026' : '');
+var preview        = (post.body || '').substring(0, 160) +
+                     (post.body && post.body.length > 160 ? '\u2026' : '');
     var timeStr    = post.ts ? formatTime(post.ts) : '';
     var catLabel   = categoryLabels[post.category] || post.category || '';
     var replyCount = post.replies || 0;
