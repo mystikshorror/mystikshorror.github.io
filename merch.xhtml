@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="horror journalism, paranormal news, ghosts, investigations, Mystiks" />
+<meta name="description" content="Mystiks Merchandise" />
+<meta name="author" content="Mystiks Media" />
+<title>Mystiks | Merchandise</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+<div id="container">
+
+    <div id="header">
+        <div class="banner-wrap">
+            <img src="images/header.jpg" alt="Mystiks Header" />
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="masthead">
+            <h1><span>M</span>YSTIKS</h1>
+            <p class="tagline">Mitos dan Mistik tanpa drama</p>
+        </div>
+    </div>
+
+    <div id="navigation">
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="news.xhtml">News</a></li>
+            <li><a href="teams.xhtml">Meet The Team</a></li>
+            <li><a href="merch.xhtml">Merchandise</a></li>
+			            <li><a href="forum.xhtml">Forum</a></li>
+            <li><a href="contact.xhtml">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+
+        <!-- Shop Header -->
+        <div class="shop-header">
+            <div class="shop-header-left">
+                <h2>Merchandise</h2>
+                <p class="shop-subtitle">Official Mystiks apparel &amp; collectibles</p>
+            </div>
+            <button class="cart-toggle" onclick="toggleCart()">
+                Troli <span id="cart-count" class="cart-count">0</span>
+            </button>
+        </div>
+
+        <!-- Cart Panel -->
+        <div id="cart-panel" class="cart-panel cart-hidden">
+            <div class="cart-panel-header">
+                <span class="cart-panel-title">Troli Anda</span>
+                <button class="cart-close" onclick="toggleCart()">&#10005;</button>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <p class="cart-empty">Troli anda kosong.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span class="cart-total-label">Jumlah</span>
+                    <span id="cart-total" class="cart-total-amount">RM 0.00</span>
+                </div>
+                <button class="btn cart-checkout" onclick="checkout()">Teruskan ke Pembayaran &#8594;</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="shop-grid">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod10.png" alt="Product 10" class="product-img" />
+                    <span class="product-badge">Mystiks X BTH LIMITED EDITION</span>
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Apparel</span>
+                    <h3 class="product-name">Burger Tophat X Mystiks Lanyard</h3>
+                    <p class="product-desc">Pakai Lanyard ni dan nikmati 5% discount di BTH sehingga 7 August! Lanyard (20x910mm). Snap Hook. 100% Polyester (tak termasuk hook, mengarutlah kalau tu polyester)</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 15.00</span>
+                        <button class="btn-add" onclick="addToCart('Burger Tophat X Mystiks Lanyard', 15.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod11.png" alt="Product 10" class="product-img" />
+					<span class="product-badge">Mystiks X BTH LIMITED EDITION</span>
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-name">Burger TopHat X Mystiks Cap</h3>
+                    <p class="product-desc">6-panel snapback. Sulaman logo hadapan. Hitam.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 25.00</span>
+                        <button class="btn-add" onclick="addToCart('Burger TopHat X Mystiks Cap', 65.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod1.png" alt="Product 1" class="product-img" />
+                    <span class="product-badge">Baharu</span>
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Apparel</span>
+                    <h3 class="product-name">Mystiks T-Shirt</h3>
+                    <p class="product-desc">100% cotton. Printed logo. Warna hitam. Unisex fit.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 59.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks T-Shirt', 59.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod2.jpg" alt="Product 2" class="product-img" />
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Apparel</span>
+                    <h3 class="product-name">Mystiks Hoodie</h3>
+                    <p class="product-desc">Fleece inner. Embroidered logo. Warna arang. Unisex.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 120.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks Hoodie', 120.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod3.jpg" alt="Product 3" class="product-img" />
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-name">Mystiks Cap</h3>
+                    <p class="product-desc">6-panel snapback. Sulaman logo hadapan. Hitam.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 45.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks Cap', 45.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod4.jpg" alt="Product 4" class="product-img" />
+                    <span class="product-badge product-badge-sold">Terhad</span>
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Collectibles</span>
+                    <h3 class="product-name">Mystiks Tote Bag</h3>
+                    <p class="product-desc">Canvas tebal. Printed design eksklusif. Natural.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 35.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks Tote Bag', 35.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+			
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod6.png" alt="Product 6" class="product-img" />
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-name">Mystiks Lanyard</h3>
+                    <p class="product-desc">Lanyard (20x910mm). Snap Hook. 100% Polyester (tak termasuk hook, mengarutlah kalau tu polyester)</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 10.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks Mug', 40.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="images/prod7.png" alt="Product 6" class="product-img" />
+                </div>
+                <div class="product-body">
+                    <span class="product-category">Collectibles</span>
+                    <h3 class="product-name">Mystiks Mug</h3>
+                    <p class="product-desc">Seramik 325ml. Cetak dua sisi. Hitam matte.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 40.00</span>
+                        <button class="btn-add" onclick="addToCart('Mystiks Mug', 40.00)">+ Troli</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end .shop-grid -->
+
+    </div>
+
+    <div id="footer">
+        <p>DISCLAIMER: This website is not the official website of Mystiks Media.
+        Mystiks Media Does Not Exist&#8230; Yet&#8230; This website was developed for the
+        purpose of learning XHTML &amp; CSS only.</p>
+        <p>Copyright &#169; 2026 Mystiks. | Last Updated: June 2026</p>
+        <p>Recommended Browser: Google Chrome | Resolution: 1920&#215;1080</p>
+        <p class="footer-links">
+            <a href="careers.xhtml">Write With Us</a>
+            &#160;|&#160;
+            <a href="tos.xhtml">Terms of Service</a>
+        </p>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var cart = [];
+
+function toggleCart() {
+    var panel = document.getElementById('cart-panel');
+    if (panel.className.indexOf('cart-hidden') !== -1) {
+        panel.className = panel.className.replace(' cart-hidden', '').replace('cart-hidden', '');
+    } else {
+        panel.className += ' cart-hidden';
+    }
+}
+
+function addToCart(name, price) {
+    var existing = null;
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) { existing = cart[i]; break; }
+    }
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+    }
+    renderCart();
+    var panel = document.getElementById('cart-panel');
+    panel.className = panel.className.replace(' cart-hidden', '').replace('cart-hidden', '');
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+}
+
+function renderCart() {
+    var itemsEl = document.getElementById('cart-items');
+    var countEl = document.getElementById('cart-count');
+    var totalEl = document.getElementById('cart-total');
+
+    var totalQty = 0;
+    var totalPrice = 0;
+    for (var i = 0; i < cart.length; i++) {
+        totalQty += cart[i].qty;
+        totalPrice += cart[i].price * cart[i].qty;
+    }
+
+    countEl.innerHTML = totalQty;
+    totalEl.innerHTML = 'RM ' + totalPrice.toFixed(2);
+
+    if (cart.length === 0) {
+        itemsEl.innerHTML = '<p class="cart-empty">Troli anda kosong.</p>';
+        return;
+    }
+
+    var html = '';
+    for (var j = 0; j < cart.length; j++) {
+        var item = cart[j];
+        html += '<div class="cart-item">';
+        html += '<div class="cart-item-info">';
+        html += '<span class="cart-item-name">' + item.name + '</span>';
+        html += '<span class="cart-item-price">RM ' + (item.price * item.qty).toFixed(2) + '</span>';
+        html += '</div>';
+        html += '<div class="cart-item-controls">';
+        html += '<span class="cart-item-qty">x' + item.qty + '</span>';
+        html += '<button class="cart-remove" onclick="removeFromCart(' + j + ')">&#10005;</button>';
+        html += '</div>';
+        html += '</div>';
+    }
+    itemsEl.innerHTML = html;
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert('Troli anda kosong!');
+        return;
+    }
+    alert('Terima kasih! Fungsi pembayaran akan disambung tidak lama lagi.');
+}
+//]]>
+</script>
+
+</body>
+</html>
