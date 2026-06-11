@@ -464,7 +464,7 @@ function loadReplies(pid) {
                 '<div class="forum-reply-item">' +
                     '<div class="forum-reply-author-line">' +
                         '<span>' + escHtml(r.author || 'Anonymous') + '</span>' +
-                        ' &nbsp;&#183;&nbsp; ' + escHtml(formatTime(r.ts)) +
+                        ' &#160;&#183;&#160; ' + escHtml(formatTime(r.ts)) +
                     '</div>' +
                     '<p class="forum-reply-text">' + escHtml(r.text || '') + '</p>' +
                 '</div>';
