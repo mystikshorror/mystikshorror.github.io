@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="horror journalism, paranormal news, ghosts, investigations, Mystiks" />
+    <meta name="description" content="Mystiks Horror Journalism Network — Group Assignment Information" />
+    <meta name="author" content="Mystiks Media" />
+    <title>Ahli Kumpulan — Mystiks Horror Journalism</title>
+    <link rel="icon" type="image/png" href="images/ico.png" />
+    <script type="text/javascript" src="scripts.js"></script>
+    <style type="text/css">
+//<![CDATA[
+
+/* ── Reset ── */
+*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Design tokens — blue/purple academic palette ── */
+:root {
+    --blood:        #7c3aed;   /* violet-600  — primary accent   */
+    --blood-bright: #a855f7;   /* purple-500  — hover accent     */
+    --ember:        #3b82f6;   /* blue-500    — secondary accent */
+    --void:         #080810;   /* near-black with blue undertone */
+    --deep:         #0d0d1a;   /* dark navy                      */
+    --surface:      #12122a;   /* dark indigo surface            */
+    --panel:        #1a1a35;   /* card/panel background          */
+    --border:       #2d2d55;   /* indigo-tinted border           */
+    --text:         #cdd0e8;   /* cool lavender off-white        */
+    --muted:        #6b6d9a;   /* muted blue-grey                */
+    --white:        #eeeef8;   /* cool near-white                */
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+    --font-body:    'Source Serif 4', Georgia, serif;
+}
+
+/* ── Base ── */
+html, body {
+    background-color: var(--void);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ── Container ── */
+#container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--deep);
+    min-height: 100vh;
+}
+
+/* ════════════════════════════════════════════
+   HEADER
+════════════════════════════════════════════ */
+#header { position: relative; }
+
+#header .banner-wrap {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+}
+
+#header .banner-wrap img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    opacity: 0.40;
+    filter: saturate(0.35) contrast(1.2);
+    display: block;
+}
+
+#header .banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(10,10,10,0.88) 100%);
+}
+
+#header .masthead {
+    position: absolute;
+    bottom: 22px;
+    left: 32px;
+    right: 32px;
+}
+
+#header .masthead h1 {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+}
+
+#header .masthead h1 span { color: var(--blood); }
+
+#header .masthead .tagline {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+#nav {
+    background-color: var(--surface);
+    border-top: 3px solid var(--blood);
+    border-bottom: 1px solid var(--border);
+}
+
+#nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 12px;
+    margin: 0;
+}
+
+#nav ul li a {
+    display: block;
+    padding: 12px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+#nav ul li a:hover {
+    color: var(--white);
+    background-color: rgba(124,58,237,0.12);
+}
+
+#nav ul li a.nav-active {
+    color: var(--blood);
+    border-bottom: 2px solid var(--blood);
+}
+
+/* ════════════════════════════════════════════
+   CONTENT
+════════════════════════════════════════════ */
+#content { padding: 48px 48px 64px; }
+
+/* ── Page heading ── */
+.group-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+}
+
+.group-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blood);
+    background-color: rgba(124,58,237,0.1);
+    border: 1px solid rgba(124,58,237,0.3);
+    padding: 4px 10px;
+    margin-bottom: 16px;
+}
+
+.group-headline {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.group-subline {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-top: 8px;
+}
+
+/* ── Course info block ── */
+.course-info {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blood);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+}
+
+.course-info-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--blood);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.course-info-value {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--white);
+}
+
+/* ── Section heading ── */
+.section-heading {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blood);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Member cards ── */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.member-card {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative;
+}
+
+.member-card:hover {
+    border-color: var(--blood);
+    transform: translateY(-3px);
+}
+
+.member-card-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(0.3) contrast(1.1);
+    transition: filter 0.3s;
+}
+
+.member-card:hover .member-card-photo {
+    filter: saturate(0.55) contrast(1.1);
+}
+
+.member-card-body {
+    padding: 18px 20px 20px;
+    border-top: 2px solid var(--border);
+}
+
+.member-card:hover .member-card-body { border-top-color: var(--blood); }
+
+.member-card-role {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--blood);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.member-card-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+.member-card-id {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+}
+
+.member-card-id span { color: var(--text); }
+
+.member-number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--blood);
+    color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Back link ── */
+.group-back { margin-top: 8px; }
+
+.group-back a {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.group-back a:before {
+    content: '\2190';
+    color: var(--blood);
+    font-size: 1rem;
+}
+
+.group-back a:hover { color: var(--white); }
+
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+#footer {
+    background-color: var(--surface);
+    border-top: 3px solid var(--blood);
+    padding: 28px 48px 32px;
+    text-align: center;
+}
+
+#footer p {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    margin-bottom: 4px;
+}
+
+#footer .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#footer .footer-links a:hover { color: var(--blood); }
+
+//]]>
+    </style>
+</head>
+<body onload="loadTheme();">
+<div id="container">
+
+    <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+    <div id="header">
+        <div class="banner-wrap">
+            <img src="images/header.jpg" alt="Mystiks Header Banner" />
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="masthead">
+            <h1><span>M</span>YSTIKS</h1>
+            <p class="tagline">IML254 &#8212; Group Assignment</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════ NAV ══════════════════════════════════ -->
+    <div id="nav">
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="news.xhtml">News</a></li>
+            <li><a href="teams.xhtml">Meet The Team</a></li>
+            <li><a href="merch.xhtml">Merchandise</a></li>
+            <li><a href="forum.xhtml">Forum</a></li>
+            <li><a href="contact.xhtml">Contact Us</a></li>
+            <li><a href="group.xhtml" class="nav-active">Kumpulan</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════ CONTENT ══════════════════════════════ -->
+    <div id="content">
+
+        <!-- Page heading -->
+        <div class="group-header">
+            <span class="group-label">Untuk Pensyarah Kami, Dr. Anum</span>
+            <h2 class="group-headline">Ahli Kumpulan</h2>
+            <p class="group-subline">KCDIM1444E &#160;&#183;&#160; IML254 &#160;&#183;&#160; Faculty of Information Science</p>
+        </div>
+
+        <!-- Course info grid -->
+        <div class="course-info">
+            <div class="course-info-item">
+                <p class="course-info-label">Course Code</p>
+                <p class="course-info-value">IML254</p>
+            </div>
+            <div class="course-info-item">
+                <p class="course-info-label">Course Name</p>
+                <p class="course-info-value">Introduction to Web Content Development</p>
+            </div>
+            <div class="course-info-item">
+                <p class="course-info-label">Faculty</p>
+                <p class="course-info-value">Faculty of Information Science</p>
+            </div>
+            <div class="course-info-item">
+                <p class="course-info-label">Group</p>
+                <p class="course-info-value">KCDIM1444E</p>
+            </div>
+        </div>
+
+        <!-- Members section -->
+        <h3 class="section-heading">Senarai Ahli Kumpulan</h3>
+
+        <div class="members-grid">
+
+            <!-- Member 1 -->
+            <div class="member-card">
+                <span class="member-number">01</span>
+                <img src="images/rizq.jpeg" alt="Rizq Syahmi" class="member-card-photo" />
+                <div class="member-card-body">
+                    <p class="member-card-role">Chief Editor &amp; Publisher</p>
+                    <p class="member-card-name">Rizq Syahmi bin Muhammad Fuad</p>
+                    <p class="member-card-id">Student ID: <span>2024295574</span></p>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="member-card">
+                <span class="member-number">02</span>
+                <img src="images/nasrul.jpeg" alt="Muhamad Nasrul" class="member-card-photo" />
+                <div class="member-card-body">
+                    <p class="member-card-role">Director</p>
+                    <p class="member-card-name">Muhamad Nasrul bin Hussain</p>
+                    <p class="member-card-id">Student ID: <span>2024620964</span></p>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="member-card">
+                <span class="member-number">03</span>
+                <img src="images/allissya.jpeg" alt="Nurul Allissya" class="member-card-photo" />
+                <div class="member-card-body">
+                    <p class="member-card-role">Chief Technical Officer</p>
+                    <p class="member-card-name">Nurul Allissya Fhasihah binti Abdullah</p>
+                    <p class="member-card-id">Student ID: <span>2024680488</span></p>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="member-card">
+                <span class="member-number">04</span>
+                <img src="images/arifah.jpeg" alt="Nur Arifah" class="member-card-photo" />
+                <div class="member-card-body">
+                    <p class="member-card-role">Chief Operations Officer</p>
+                    <p class="member-card-name">Nur &#x2018;Arifah binti Zulhelmi Ang</p>
+                    <p class="member-card-id">Student ID: <span>2024644794</span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back link -->
+        <div class="group-back">
+            <a href="index.xhtml">Back to Homepage</a>
+        </div>
+
+    </div>
+    <!-- /content -->
+
+    <!-- ═══════════════════════════════ FOOTER ════════════════════════════════ -->
+    <div id="footer">
+        <p>DISCLAIMER: This website is not the official website of Mystiks Media.
+        Mystiks Media Does Not Exist&#8230; Yet&#8230; This website was developed for the
+        purpose of learning XHTML &amp; CSS only.</p>
+        <p>Copyright &#169; 2026 Mystiks. &#160;|&#160; Last Updated: June 2026</p>
+        <p>Recommended Browser: Google Chrome &#160;|&#160; Resolution: 1920&#215;1080</p>
+        <p class="footer-links">
+            <a href="careers.xhtml">Write With Us</a>
+            &#160;|&#160;
+            <a href="tos.xhtml">Terms of Service</a>
+        </p>
+    </div>
+
+</div>
+<!-- /container -->
+</body>
+</html>
