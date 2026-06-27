@@ -283,6 +283,81 @@ html, body {
 }
 
 .group-back a:hover { color: var(--white); }
+        .report-section {
+            margin-bottom: 56px;
+        }
+
+        .pdf-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--panel);
+            border: 1px solid var(--border);
+            border-bottom: none;
+            padding: 14px 20px;
+        }
+
+        .pdf-toolbar-title {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .pdf-toolbar-title span {
+            color: var(--blood);
+            margin-right: 8px;
+        }
+
+        .pdf-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--white);
+            background-color: var(--blood);
+            border: none;
+            padding: 7px 14px;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .pdf-download-btn:hover { background-color: var(--blood-bright); }
+
+        .pdf-embed-wrapper {
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--blood);
+            background-color: var(--surface);
+            line-height: 0;
+        }
+
+        .pdf-embed-wrapper embed,
+        .pdf-embed-wrapper iframe {
+            width: 100%;
+            height: 780px;
+            display: block;
+            border: none;
+        }
+
+        .pdf-fallback {
+            padding: 48px 32px;
+            text-align: center;
+        }
+
+        .pdf-fallback p {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 16px;
+            letter-spacing: 0.06em;
+        }
 
 /* ════════════════════════════════════════════
    FOOTER
@@ -401,7 +476,33 @@ html, body {
             </div>
 
         </div>
+        <div class="report-section">
+            <h3 class="section-heading">Group Report</h3>
 
+            <div class="pdf-toolbar">
+                <p class="pdf-toolbar-title">
+                    <span>&#9632;</span> IML254 &mdash; Corporate Website Development Report
+                </p>
+                <a class="pdf-download-btn" href="iml254groupreport.pdf" download>
+                    &#8595; Download PDF
+                </a>
+            </div>
+
+            <div class="pdf-embed-wrapper">
+                <embed
+                    src="iml254groupreport.pdf"
+                    type="application/pdf"
+                    title="IML254 Group Report — Mystiks Horror Journalism"
+                >
+                <!-- Fallback for browsers that don't render embed -->
+                <div class="pdf-fallback" style="display:none;" id="pdf-fallback">
+                    <p>Your browser does not support embedded PDFs.</p>
+                    <a class="pdf-download-btn" href="iml254groupreport.pdf" download>
+                        &#8595; Download the Report Instead
+                    </a>
+                </div>
+            </div>
+        </div>
         <!-- Back link -->
         <div class="group-back">
             <a href="index.xhtml">TO THE ASSIGNMENTe</a>
