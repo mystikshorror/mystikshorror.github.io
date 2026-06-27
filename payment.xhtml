@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mystiks | Pembayaran</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="payment.css" />
+<link rel="icon" type="image/png" href="images/ico.png" />
+</head>
+<body>
+<div id="container">
+
+    <div id="header">
+        <div class="banner-wrap">
+            <img src="images/header.jpg" alt="Mystiks Header" />
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="masthead">
+            <h1><span>M</span>YSTIKS</h1>
+            <p class="tagline">Mitos dan Mistik tanpa drama</p>
+        </div>
+    </div>
+
+    <div id="navigation">
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="news.xhtml">News</a></li>
+            <li><a href="teams.xhtml">Meet The Team</a></li>
+            <li><a href="merch.xhtml">Merchandise</a></li>
+            <li><a href="forum.xhtml">Forum</a></li>
+            <li><a href="contact.xhtml">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+
+        <div class="pay-page-title">
+            <h2>Checkout</h2>
+            <p>Selesaikan pembelian anda di bawah</p>
+        </div>
+
+        <div class="pay-wrap">
+
+            <!-- ── LEFT: Order summary ── -->
+            <div class="order-summary">
+                <h3>Ringkasan Pesanan</h3>
+                <div id="summary-items">
+                    <!-- filled by JS -->
+                </div>
+                <hr class="summary-divider" />
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">RM 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Penghantaran</span>
+                    <span>RM 8.00</span>
+                </div>
+                <div class="summary-total-row">
+                    <span>Jumlah</span>
+                    <span id="summary-total">RM 0.00</span>
+                </div>
+                <a href="merch.xhtml" class="back-link">&#8592; Kembali ke kedai</a>
+            </div>
+
+            <!-- ── RIGHT: Payment form ── -->
+            <div class="pay-form-wrap">
+
+                <!-- Contact -->
+                <p class="pay-section-label">Maklumat Hubungan</p>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>Nama Penuh</label>
+                        <input type="text" id="f-name" placeholder="Contoh: Ahmad bin Ali" />
+                    </div>
+                    <div class="field-group">
+                        <label>No. Telefon</label>
+                        <input type="text" id="f-phone" placeholder="01X-XXXXXXX" />
+                    </div>
+                </div>
+                <div class="field-group full">
+                    <label>Emel</label>
+                    <input type="text" id="f-email" placeholder="nama@emel.com" />
+                </div>
+
+                <!-- Shipping -->
+                <p class="pay-section-label" style="margin-top:22px;">Alamat Penghantaran</p>
+                <div class="field-group full">
+                    <label>Alamat</label>
+                    <input type="text" id="f-addr" placeholder="No. rumah, jalan..." />
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>Bandar</label>
+                        <input type="text" id="f-city" placeholder="Kuala Lumpur" />
+                    </div>
+                    <div class="field-group">
+                        <label>Poskod</label>
+                        <input type="text" id="f-post" placeholder="50000" />
+                    </div>
+                </div>
+                <div class="field-group full">
+                    <label>Negeri</label>
+                    <select id="f-state">
+                        <option value="">-- Pilih Negeri --</option>
+                        <option>Johor</option>
+                        <option>Kedah</option>
+                        <option>Kelantan</option>
+                        <option>Kuala Lumpur</option>
+                        <option>Melaka</option>
+                        <option>Negeri Sembilan</option>
+                        <option>Pahang</option>
+                        <option>Perak</option>
+                        <option>Perlis</option>
+                        <option>Pulau Pinang</option>
+                        <option>Putrajaya</option>
+                        <option>Sabah</option>
+                        <option>Sarawak</option>
+                        <option selected="selected">Selangor</option>
+                        <option>Terengganu</option>
+                    </select>
+                </div>
+
+                <!-- Payment method -->
+                <p class="pay-section-label" style="margin-top:22px;">Kaedah Pembayaran</p>
+
+                <div class="pay-method-tabs">
+                    <div class="pay-method-tab active" onclick="switchMethod('fpx', this)">FPX / Bank</div>
+                    <div class="pay-method-tab" onclick="switchMethod('ewallet', this)">E-Wallet</div>
+                </div>
+
+                <!-- FPX panel -->
+                <div id="panel-fpx" class="method-panel active">
+                    <p class="pay-note" style="margin-bottom:14px;">Pilih bank anda untuk meneruskan:</p>
+                    <div class="fpx-banks">
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Maybank2U</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">CIMB Clicks</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Public Bank</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">RHB Now</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Hong Leong</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Bank Islam</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Ambank</button>
+                        <button class="fpx-bank-btn" onclick="selectBank(this)">Bank Rakyat</button>
+                    </div>
+                    <p class="pay-note">Anda akan dipindahkan ke portal bank anda selepas mengesahkan pesanan.</p>
+                </div>
+
+                <!-- E-Wallet panel -->
+                <div id="panel-ewallet" class="method-panel">
+                    <p class="pay-note" style="margin-bottom:14px;">Pilih dompet e anda:</p>
+                    <div class="ewallet-options">
+                        <button class="ewallet-btn" onclick="selectEwallet(this)">
+                            <span class="ewallet-icon">&#128154;</span>Touch 'n Go
+                        </button>
+                        <button class="ewallet-btn" onclick="selectEwallet(this)">
+                            <span class="ewallet-icon">&#128309;</span>GrabPay
+                        </button>
+                        <button class="ewallet-btn" onclick="selectEwallet(this)">
+                            <span class="ewallet-icon">&#128995;</span>Boost
+                        </button>
+                        <button class="ewallet-btn" onclick="selectEwallet(this)">
+                            <span class="ewallet-icon">&#128992;</span>ShopeePay
+                        </button>
+                    </div>
+                    <p class="pay-note">QR kod atau pautan pembayaran akan dipaparkan selepas mengesahkan pesanan.</p>
+                </div>
+
+                <button class="btn-pay" id="btn-pay" onclick="submitPayment()">
+                    Bayar Sekarang &#8594;
+                </button>
+                <div class="secure-badge">
+                    &#128274; Pembayaran selamat &amp; disulitkan
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>DISCLAIMER: This website is not the official website of Mystiks Media.
+        Mystiks Media Does Not Exist&#8230; Yet&#8230; This website was developed for the
+        purpose of learning XHTML &amp; CSS only.</p>
+        <p>Copyright &#169; 2026 Mystiks. | Last Updated: June 2026</p>
+        <p>Recommended Browser: Google Chrome | Resolution: 1920&#215;1080</p>
+        <p class="footer-links">
+            <a href="careers.xhtml">Write With Us</a>
+            &#160;|&#160;
+            <a href="tos.xhtml">Terms of Service</a>
+        </p>
+    </div>
+
+</div>
+
+<!-- ── Confirmation overlay ── -->
+<div class="confirm-overlay" id="confirm-overlay">
+    <div class="confirm-box">
+        <span class="confirm-icon">&#10003;</span>
+        <h2>Pembayaran Berjaya!</h2>
+        <p>Terima kasih atas pembelian anda. Pesanan anda telah diterima dan akan diproses dalam masa 1-2 hari bekerja.</p>
+        <p id="confirm-email-note"></p>
+        <p class="confirm-ref" id="confirm-ref"></p>
+        <button class="btn-confirm-back" onclick="goHome()">Kembali ke Kedai</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+// ── Load cart from sessionStorage ──
+var cart = [];
+try {
+    var raw = sessionStorage.getItem('mystiks_cart');
+    if (raw) cart = JSON.parse(raw);
+} catch(e) {}
+
+var SHIPPING = 8.00;
+
+function renderSummary() {
+    var el = document.getElementById('summary-items');
+    var subEl = document.getElementById('summary-subtotal');
+    var totEl = document.getElementById('summary-total');
+
+    if (!cart || cart.length === 0) {
+        el.innerHTML = '<p style="color:#555;font-size:0.8rem;">Tiada item dalam troli.</p>';
+        subEl.innerHTML = 'RM 0.00';
+        totEl.innerHTML = 'RM ' + SHIPPING.toFixed(2);
+        return;
+    }
+
+    var html = '';
+    var sub = 0;
+    for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        var line = item.price * item.qty;
+        sub += line;
+        html += '<div class="summary-item">';
+        html += '<div class="cart-item-info" style="flex:1;">';
+        html += '<span class="summary-item-name">' + item.name + '</span><br/>';
+        html += '<span class="summary-item-meta">x' + item.qty + ' @ RM ' + item.price.toFixed(2) + '</span>';
+        html += '</div>';
+        html += '<span class="summary-item-price">RM ' + line.toFixed(2) + '</span>';
+        html += '</div>';
+    }
+    el.innerHTML = html;
+    subEl.innerHTML = 'RM ' + sub.toFixed(2);
+    totEl.innerHTML = 'RM ' + (sub + SHIPPING).toFixed(2);
+}
+
+
+// ── Method switching ──
+function switchMethod(method, tab) {
+    var tabs = document.querySelectorAll('.pay-method-tab');
+    for (var i = 0; i < tabs.length; i++) tabs[i].className = 'pay-method-tab';
+    tab.className = 'pay-method-tab active';
+
+    var panels = document.querySelectorAll('.method-panel');
+    for (var j = 0; j < panels.length; j++) panels[j].className = 'method-panel';
+    document.getElementById('panel-' + method).className = 'method-panel active';
+}
+
+function selectBank(btn) {
+    var btns = document.querySelectorAll('.fpx-bank-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].className = 'fpx-bank-btn';
+    btn.className = 'fpx-bank-btn selected';
+}
+
+function selectEwallet(btn) {
+    var btns = document.querySelectorAll('.ewallet-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].className = 'ewallet-btn';
+    btn.className = 'ewallet-btn selected';
+}
+
+// ── Form validation &amp; submit ──
+function submitPayment() {
+    var name  = document.getElementById('f-name').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    var addr  = document.getElementById('f-addr').value.trim();
+    var city  = document.getElementById('f-city').value.trim();
+    var post  = document.getElementById('f-post').value.trim();
+    var state = document.getElementById('f-state').value;
+
+    if (!name || !phone || !email || !addr || !city || !post || !state) {
+        alert('Sila lengkapkan semua maklumat hubungan dan alamat penghantaran.');
+        return;
+    }
+    if (email.indexOf('@') === -1) {
+        alert('Sila masukkan alamat emel yang sah.');
+        return;
+    }
+
+    var btn = document.getElementById('btn-pay');
+    btn.disabled = true;
+    btn.innerHTML = 'Memproses...';
+
+    // Simulate a short processing delay
+    setTimeout(function() {
+        sessionStorage.removeItem('mystiks_cart');
+        var ref = 'MYS-' + Math.random().toString(36).substring(2,8).toUpperCase();
+        document.getElementById('confirm-ref').innerHTML = 'No. Rujukan: ' + ref;
+        document.getElementById('confirm-email-note').innerHTML = 'Pengesahan akan dihantar ke <strong style="color:#ccc;">' + email + '</strong>';
+        document.getElementById('confirm-overlay').className = 'confirm-overlay visible';
+    }, 1600);
+}
+
+function goHome() {
+    window.location.href = 'merch.xhtml';
+}
+
+// init
+renderSummary();
+//]]>
+</script>
+
+</body>
+</html>
