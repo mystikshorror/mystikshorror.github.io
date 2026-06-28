@@ -25,13 +25,13 @@ The project was developed over 12 weeks following the **Website Development Life
 |---|---|
 | `index.xhtml` | Homepage — bilingual welcome, video player, article teasers |
 | `news.xhtml` | News listing — featured article card and story grid |
-| `1162026a.xhtml` | Article — Burger Tophat × Mystiks collaboration |
-| `1062026b.xhtml` | Article — Camping ghost encounter |
-| `1062026c.xhtml` | Article — UITM students meet Cik Pon |
-| `1062026d.xhtml` | Article — Zombie video school project |
-| `962026a.xhtml` | Article — Lorry-struck goat apparition |
-| `962026b.xhtml` | Article — Abadi Nan Jaya horror film review |
-| `962026c.xhtml` | Article — "Lai Sap" train ghost |
+| `1162026a.xhtml` | Article |
+| `1062026b.xhtml` | Article |
+| `1062026c.xhtml` | Article |
+| `1062026d.xhtml` | Article |
+| `962026a.xhtml` | Article |
+| `962026b.xhtml` | Article |
+| `962026c.xhtml` | Article |
 | `teams.xhtml` | Meet the Team — in-universe staff persona cards |
 | `merch.xhtml` | Merchandise — product grid with JS shopping cart |
 | `payment.xhtml` | Payment — simulated checkout confirmation |
@@ -40,6 +40,7 @@ The project was developed over 12 weeks following the **Website Development Life
 | `careers.xhtml` | Write With Us — contributor recruitment page |
 | `tos.xhtml` | Terms of Service — bilingual legal clauses |
 | `group.xhtml` | Assignment info — course details and group member page |
+| `preview.html` | Assignment info — presentation QR Code |
 
 **Total: 17 XHTML pages** (meets the 15-page minimum requirement).
 
@@ -123,6 +124,7 @@ mystikshorror.github.io/
 ├── careers.xhtml
 ├── tos.xhtml
 ├── group.xhtml
+├── preview.html
 ├── style.css            # Shared stylesheet
 ├── article.css
 ├── careers.css
