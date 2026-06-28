@@ -32,6 +32,13 @@ The project was developed over 12 weeks following the **Website Development Life
 | `962026a.xhtml` | Article |
 | `962026b.xhtml` | Article |
 | `962026c.xhtml` | Article |
+| `1162026aenguk.xhtml` | Article |
+| `1062026benguk.xhtml` | Article |
+| `1062026cenguk.xhtml` | Article |
+| `1062026denguk.xhtml` | Article |
+| `962026aenguk.xhtml` | Article |
+| `962026benguk.xhtml` | Article |
+| `962026cenguk.xhtml` | Article |
 | `teams.xhtml` | Meet the Team — in-universe staff persona cards |
 | `merch.xhtml` | Merchandise — product grid with JS shopping cart |
 | `payment.xhtml` | Payment — simulated checkout confirmation |
@@ -42,7 +49,7 @@ The project was developed over 12 weeks following the **Website Development Life
 | `group.xhtml` | Assignment info — course details and group member page |
 | `preview.html` | Assignment info — presentation QR Code |
 
-**Total: 17 XHTML pages** (meets the 15-page minimum requirement).
+**Total: 24 XHTML pages** (meets the 15-page minimum requirement).
 
 ---
 
@@ -116,6 +123,13 @@ mystikshorror.github.io/
 ├── 962026a.xhtml
 ├── 962026b.xhtml
 ├── 962026c.xhtml
+├── 1162026aenguk.xhtml       # English Articles (7 total)
+├── 1062026benguk.xhtml
+├── 1062026cenguk.xhtml
+├── 1062026denguk.xhtml
+├── 962026aenguk.xhtml
+├── 962026benguk.xhtml
+├── 962026cenguk.xhtml
 ├── teams.xhtml
 ├── merch.xhtml
 ├── payment.xhtml
