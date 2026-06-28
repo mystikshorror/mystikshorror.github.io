@@ -232,16 +232,24 @@
      -------------------------------------------------- */
   .team-row {
     grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
     gap: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
   }
- 
+
   .team-member {
     padding: 16px 10px 14px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
  
   .team-member-img-wrap {
     width: 100% !important;
     height: 160px !important;
+    overflow: hidden !important;
   }
  
   .team-member-img {
@@ -253,8 +261,9 @@
  
   .team-bio-panel-open {
     padding: 24px 16px 28px !important;
+    max-height: 400px !important;
   }
- 
+
   .team-join-strip {
     flex-direction: column !important;
     gap: 12px !important;
