@@ -1,3 +1,12 @@
+/* =====================================================
+   mobile.css — Mystiks site mobile responsiveness
+   No HTML changes needed.
+
+   Add to every .xhtml <head> after existing stylesheet:
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" type="text/css" href="mobile.css" />
+   ===================================================== */
+
 @media screen and (max-width: 900px) {
 
   /* --------------------------------------------------
@@ -83,8 +92,7 @@
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    width: max-content !important;  /* key: lets ul be as wide as needed */
-    min-width: 100% !important;     /* at least full screen width */
+    width: max-content !important;  /* lets ul be exactly as wide as its content */
     margin: 0 !important;
     padding: 0 !important;
     list-style: none !important;
