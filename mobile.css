@@ -230,55 +230,41 @@
   /* --------------------------------------------------
      TEAMS PAGE
      -------------------------------------------------- */
- .teams-grid, .team-list, .team-cards,
-  #team-members, #members, .members,
-  #team-roster, .team-roster {
-    display: grid !important;
+  /* 2-column grid on mobile instead of 4 */
+  .team-row {
     grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    width: 100% !important;
+    gap: 0 !important;
   }
  
-  #content table {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    width: 100% !important;
-    border: none !important;
+  /* Let each member card breathe at smaller padding */
+  .team-member {
+    padding: 16px 10px 14px !important;
   }
  
-  #content table tr,
-  #team-members tr, #members tr, .members tr {
-    display: contents !important;
+  /* Unconstrain the photo wrap so it fills the card width */
+  .team-member-img-wrap {
+    width: 100% !important;
+    height: 160px !important;
   }
  
-  .team-card, .team-member,
-  #team-members td, #team-members th,
-  #members td, #members th,
-  .members td, .members th,
-  #content table td, #content table th {
-    display: block !important;
+  .team-member-img {
     width: 100% !important;
-    float: none !important;
-    text-align: center !important;
-    padding: 8px !important;
-    box-sizing: border-box !important;
-    border: none !important;
-  }
- 
-  .team-card img, .team-member img,
-  #team-members img, #members img,
-  .members img, .team-roster img,
-  #content table img {
-    width: 100% !important;
-    max-width: 100% !important;
-    max-height: 200px !important;
-    height: auto !important;
+    height: 100% !important;
     object-fit: cover !important;
-    display: block !important;
-    margin: 0 auto 8px !important;
+    object-position: center top !important;
   }
-
+ 
+  /* Bio panel padding on mobile */
+  .team-bio-panel-open {
+    padding: 24px 16px 28px !important;
+  }
+ 
+  /* Join strip stacks on small screens */
+  .team-join-strip {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
   /* --------------------------------------------------
      MERCH PAGE
      -------------------------------------------------- */
