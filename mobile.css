@@ -230,18 +230,15 @@
   /* --------------------------------------------------
      TEAMS PAGE
      -------------------------------------------------- */
-  /* 2-column grid on mobile instead of 4 */
   .team-row {
     grid-template-columns: 1fr 1fr !important;
     gap: 0 !important;
   }
  
-  /* Let each member card breathe at smaller padding */
   .team-member {
     padding: 16px 10px 14px !important;
   }
  
-  /* Unconstrain the photo wrap so it fills the card width */
   .team-member-img-wrap {
     width: 100% !important;
     height: 160px !important;
@@ -254,12 +251,10 @@
     object-position: center top !important;
   }
  
-  /* Bio panel padding on mobile */
   .team-bio-panel-open {
     padding: 24px 16px 28px !important;
   }
  
-  /* Join strip stacks on small screens */
   .team-join-strip {
     flex-direction: column !important;
     gap: 12px !important;
