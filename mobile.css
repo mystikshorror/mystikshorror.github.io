@@ -230,23 +230,53 @@
   /* --------------------------------------------------
      TEAMS PAGE
      -------------------------------------------------- */
-  .teams-grid, .team-list, .team-cards {
+ .teams-grid, .team-list, .team-cards,
+  #team-members, #members, .members,
+  #team-roster, .team-roster {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
     width: 100% !important;
   }
-
-  .team-card, .team-member {
+ 
+  #content table {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    border: none !important;
+  }
+ 
+  #content table tr,
+  #team-members tr, #members tr, .members tr {
+    display: contents !important;
+  }
+ 
+  .team-card, .team-member,
+  #team-members td, #team-members th,
+  #members td, #members th,
+  .members td, .members th,
+  #content table td, #content table th {
     display: block !important;
     width: 100% !important;
     float: none !important;
+    text-align: center !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    border: none !important;
   }
-
-  .team-card img, .team-member img {
+ 
+  .team-card img, .team-member img,
+  #team-members img, #members img,
+  .members img, .team-roster img,
+  #content table img {
     width: 100% !important;
-    max-height: 180px !important;
+    max-width: 100% !important;
+    max-height: 200px !important;
+    height: auto !important;
     object-fit: cover !important;
+    display: block !important;
+    margin: 0 auto 8px !important;
   }
 
   /* --------------------------------------------------
@@ -275,6 +305,44 @@
     width: 100% !important;
     float: none !important;
     margin-bottom: 16px !important;
+  }
+ 
+  #forum-auth, .forum-auth, .forum-auth-bar,
+  #auth-bar, .auth-bar, #forum-header-actions {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    justify-content: flex-end !important;
+    width: 100% !important;
+    padding: 8px 14px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  #btn-signin, #btn-register, #btn-signout,
+  .btn-signin, .btn-register, .btn-signout,
+  #forum-signin, #forum-register, #forum-signout,
+  .forum-signin, .forum-register, .forum-signout,
+  [id*="signin"], [id*="sign-in"], [id*="register"],
+  [class*="signin"], [class*="sign-in"], [class*="register"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    pointer-events: auto !important;
+    padding: 8px 14px !important;
+    font-size: 0.85em !important;
+    white-space: nowrap !important;
   }
 
   /* --------------------------------------------------
