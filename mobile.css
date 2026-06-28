@@ -1,0 +1,447 @@
+/* =====================================================
+   mobile.css — Mystiks site mobile responsiveness
+   Add this file to the repo, then add the following
+   line to the <head> of EVERY .xhtml file, AFTER
+   the existing <link rel="stylesheet" ...> line:
+
+     <link rel="stylesheet" type="text/css" href="mobile.css" />
+
+   Also add this viewport meta tag to every <head>,
+   right after <meta http-equiv="Content-Type" ...>:
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   ===================================================== */
+
+/* --------------------------------------------------
+   1. BASE RESETS — stop content overflowing on mobile
+   -------------------------------------------------- */
+@media screen and (max-width: 900px) {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* --------------------------------------------------
+     2. CONTAINER — full-width, remove fixed widths
+     -------------------------------------------------- */
+  #container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  /* --------------------------------------------------
+     3. HEADER — scale down banner & masthead
+     -------------------------------------------------- */
+  #header {
+    width: 100% !important;
+  }
+
+  .banner-wrap {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 200px !important;
+    overflow: hidden !important;
+  }
+
+  .banner-wrap img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  .masthead {
+    padding: 12px 16px !important;
+    text-align: center !important;
+  }
+
+  .masthead h1 {
+    font-size: 2em !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .tagline {
+    font-size: 0.85em !important;
+  }
+
+  /* --------------------------------------------------
+     4. NAVIGATION — horizontal scroll on mobile
+     -------------------------------------------------- */
+  #navigation {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  #navigation ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    white-space: nowrap !important;
+  }
+
+  #navigation ul li {
+    display: inline-block !important;
+    float: none !important;
+  }
+
+  #navigation ul li a {
+    display: block !important;
+    padding: 10px 14px !important;
+    font-size: 0.85em !important;
+  }
+
+  /* --------------------------------------------------
+     5. CONTENT AREA — full width, padding
+     -------------------------------------------------- */
+  #content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 14px !important;
+    float: none !important;
+  }
+
+  /* --------------------------------------------------
+     6. ARTICLE LAYOUT (index.xhtml / article pages)
+        Stack sidebar below main article on mobile
+     -------------------------------------------------- */
+  .article-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .article-main,
+  .article-sidebar {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  .sidebar-widget {
+    padding: 12px !important;
+  }
+
+  .sidebar-related-item {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .sidebar-related-thumb {
+    width: 80px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* --------------------------------------------------
+     7. NEWS PAGE (news.xhtml)
+     -------------------------------------------------- */
+  .news-page-header {
+    padding: 12px 0 !important;
+  }
+
+  .news-featured {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .news-featured-thumb {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .news-featured-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 220px !important;
+    object-fit: cover !important;
+  }
+
+  .news-featured-body {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* News card grid: 1 column on mobile */
+  .news-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .news-card {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .news-card-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+  }
+
+  /* News list rows: wrap on small screens */
+  .news-list-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+  }
+
+  .news-list-thumb {
+    width: 60px !important;
+    height: 45px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+
+  .news-list-title {
+    flex: 1 1 160px !important;
+    font-size: 0.85em !important;
+  }
+
+  .news-list-date {
+    font-size: 0.75em !important;
+  }
+
+  /* --------------------------------------------------
+     8. CONTACT PAGE (contact.xhtml)
+     -------------------------------------------------- */
+  .contact-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .contact-details,
+  .contact-form-wrap {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 20px !important;
+  }
+
+  .contact-gform-outer {
+    width: 100% !important;
+  }
+
+  .contact-gform {
+    width: 100% !important;
+    min-height: 480px !important;
+  }
+
+  /* --------------------------------------------------
+     9. CAREERS PAGE (careers.xhtml)
+     -------------------------------------------------- */
+  .careers-layout,
+  .careers-grid {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .careers-card,
+  .careers-sidebar,
+  .careers-main {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* --------------------------------------------------
+     10. TEAMS PAGE (teams.xhtml)
+     -------------------------------------------------- */
+  .teams-grid,
+  .team-list,
+  .team-cards {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .team-card,
+  .team-member {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .team-card img,
+  .team-member img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+  }
+
+  /* --------------------------------------------------
+     11. MERCH PAGE (merch.xhtml)
+     -------------------------------------------------- */
+  .merch-grid,
+  .merch-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .merch-item,
+  .merch-card {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .merch-item img,
+  .merch-card img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  /* --------------------------------------------------
+     12. FORUM PAGE (forum.xhtml)
+     -------------------------------------------------- */
+  .forum-layout,
+  .forum-main,
+  .forum-sidebar {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 16px !important;
+  }
+
+  .forum-post,
+  .forum-thread {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  /* --------------------------------------------------
+     13. ARTICLE DETAIL PAGES (9/10/11 Jun articles)
+     -------------------------------------------------- */
+  .article-content,
+  .article-body {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .article-content img,
+  .article-body img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 8px 0 !important;
+  }
+
+  /* --------------------------------------------------
+     14. VIDEO PLAYER
+     -------------------------------------------------- */
+  #myPlayer,
+  .video-player,
+  video {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* --------------------------------------------------
+     15. TABLES — horizontal scroll wrapper
+     -------------------------------------------------- */
+  table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* --------------------------------------------------
+     16. FORMS — full width inputs
+     -------------------------------------------------- */
+  input, textarea, select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --------------------------------------------------
+     17. FOOTER
+     -------------------------------------------------- */
+  #footer {
+    width: 100% !important;
+    padding: 16px 14px !important;
+    text-align: center !important;
+  }
+
+  #footer p {
+    font-size: 0.8em !important;
+    margin: 6px 0 !important;
+  }
+
+  .footer-links {
+    font-size: 0.8em !important;
+  }
+
+} /* end @media max-width: 900px */
+
+
+/* --------------------------------------------------
+   Extra-small phones (max-width: 480px)
+   -------------------------------------------------- */
+@media screen and (max-width: 480px) {
+
+  .masthead h1 {
+    font-size: 1.6em !important;
+  }
+
+  #navigation ul li a {
+    padding: 8px 10px !important;
+    font-size: 0.78em !important;
+  }
+
+  /* Single column for grids on very small screens */
+  .teams-grid,
+  .team-list,
+  .team-cards,
+  .merch-grid,
+  .merch-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .banner-wrap {
+    max-height: 140px !important;
+  }
+
+  #content {
+    padding: 10px 10px !important;
+  }
+
+}
