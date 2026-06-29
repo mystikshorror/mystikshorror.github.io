@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan the QR Code</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#c9e8ff}
+body::before{content:'';position:fixed;inset:0;background:linear-gradient(to bottom,#c9e8ff 0%,#d4f0c0 58%,#8bc34a 58%,#7cb342 100%);z-index:0}
+.ground{position:fixed;bottom:0;left:0;right:0;height:20%;background:repeating-linear-gradient(90deg,#7cb342 0 40px,#8bc34a 40px 80px);z-index:1}
+.ground::before{content:'';position:absolute;top:-16px;left:0;right:0;height:18px;background:radial-gradient(ellipse 30px 14px at 50% 100%,#8bc34a 70%,transparent 71%) repeat-x;background-size:40px 18px}
+
+.sky-el{position:fixed;pointer-events:none;z-index:2}
+
+.cloud{font-size:60px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.06));animation:drift linear infinite}
+.c1{top:5%;animation-duration:30s;animation-delay:0s;font-size:72px}
+.c2{top:13%;animation-duration:38s;animation-delay:-13s;font-size:50px}
+.c3{top:21%;animation-duration:24s;animation-delay:-7s;font-size:44px}
+@keyframes drift{from{transform:translateX(-200px)}to{transform:translateX(110vw)}}
+
+.rainbow{position:fixed;pointer-events:none;font-size:100px;opacity:.5;z-index:2}
+.r1{top:-18px;left:-24px;transform:rotate(-14deg)}
+.r2{bottom:18%;right:-16px;transform:rotate(18deg) scaleX(-1);font-size:76px;opacity:.35}
+
+.goat{position:fixed;pointer-events:none;z-index:5;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.12));animation:goat-flee linear infinite}
+.g1{top:9%;font-size:56px;animation-duration:13s;animation-delay:0s}
+.g2{top:26%;font-size:42px;animation-duration:17s;animation-delay:-5s}
+.g3{top:17%;font-size:50px;animation-duration:10s;animation-delay:-3s}
+.g4{top:34%;font-size:36px;animation-duration:19s;animation-delay:-9s}
+@keyframes goat-flee{
+  0%  {transform:translateX(110vw) scaleX(-1) rotate(0deg)}
+  20% {transform:translateX(80vw)  scaleX(-1) rotate(-10deg) translateY(-20px)}
+  40% {transform:translateX(58vw)  scaleX(-1) rotate(8deg)   translateY(8px)}
+  60% {transform:translateX(38vw)  scaleX(-1) rotate(-12deg) translateY(-14px)}
+  80% {transform:translateX(18vw)  scaleX(-1) rotate(7deg)   translateY(6px)}
+  100%{transform:translateX(-160px) scaleX(-1) rotate(0deg)}
+}
+
+.plane{position:fixed;pointer-events:none;z-index:7;display:flex;align-items:center;gap:2px;animation:plane-chase linear infinite;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.18))}
+.plane span{display:inline-block}
+.plane .bird{font-size:30px}
+.plane .jet{font-size:40px;transform:scaleX(-1)}
+.p1{top:7%;animation-duration:8s;animation-delay:-1s}
+.p2{top:22%;animation-duration:11s;animation-delay:-5s}
+.p3{top:14%;animation-duration:6.5s;animation-delay:-2s}
+@keyframes plane-chase{from{transform:translateX(-120px)}to{transform:translateX(110vw)}}
+
+.miss{position:fixed;pointer-events:none;z-index:6;font-size:20px;animation:miss-fly linear infinite}
+.m1{top:11%;animation-duration:2.8s;animation-delay:-0.4s}
+.m2{top:25%;animation-duration:3.6s;animation-delay:-1.6s}
+.m3{top:9%;animation-duration:2.2s;animation-delay:-0.9s}
+@keyframes miss-fly{
+  0%  {transform:translateX(8vw);  opacity:1}
+  65% {transform:translateX(72vw); opacity:1}
+  80% {transform:translateX(78vw) scale(1.8);opacity:.6}
+  100%{transform:translateX(82vw) scale(0);  opacity:0}
+}
+
+.boom{position:fixed;pointer-events:none;z-index:8;font-size:36px;animation:boom-pop linear infinite}
+.b1{top:9%;animation-duration:4.5s;animation-delay:-0.8s}
+.b2{top:21%;animation-duration:6s;animation-delay:-2.8s}
+.b3{top:31%;animation-duration:3.8s;animation-delay:-1.6s}
+@keyframes boom-pop{
+  0%  {transform:translateX(74vw) scale(0);opacity:0}
+  6%  {transform:translateX(75vw) scale(1.4);opacity:1}
+  18% {transform:translateX(75vw) scale(.9); opacity:.8}
+  24% {transform:translateX(75vw) scale(1.1);opacity:0}
+  100%{transform:translateX(75vw) scale(0);  opacity:0}
+}
+
+.smoke{position:fixed;pointer-events:none;z-index:4;font-size:26px;opacity:.65;animation:smoke-drift linear infinite}
+.s1{top:16%;animation-duration:12s;animation-delay:-3s}
+.s2{top:30%;animation-duration:16s;animation-delay:-8s}
+@keyframes smoke-drift{
+  0%  {transform:translateX(68vw) translateY(0)    scale(.5);opacity:.7}
+  50% {transform:translateX(38vw) translateY(-28px) scale(1.1);opacity:.4}
+  100%{transform:translateX(-80px) translateY(-55px) scale(.3);opacity:0}
+}
+
+.tank-lane{position:fixed;bottom:19%;left:0;right:0;z-index:6;overflow:hidden;height:80px;pointer-events:none}
+.tank-row{display:flex;position:absolute;white-space:nowrap;animation:march linear infinite}
+.tr1{bottom:2px;animation-duration:16s;animation-delay:0s}
+.tr2{bottom:36px;animation-duration:21s;animation-delay:-7s;font-size:.82em}
+@keyframes march{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+.tank-unit{display:inline-flex;flex-direction:column;align-items:center;margin-right:4px}
+.tc{font-size:26px;display:inline-block;transform:scaleX(-1);animation:tstep .35s steps(2) infinite;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.18))}
+.tb{font-size:34px;display:inline-block;transform:scaleX(-1);filter:drop-shadow(1px 1px 0 rgba(0,0,0,.22))}
+.tank-unit:nth-child(even) .tc{animation-delay:-.18s}
+@keyframes tstep{
+  0%  {transform:scaleX(-1) translateY(0)    rotate(-4deg)}
+  50% {transform:scaleX(-1) translateY(-3px)  rotate(4deg)}
+  100%{transform:scaleX(-1) translateY(0)    rotate(-4deg)}
+}
+
+.tshot{position:fixed;bottom:24%;z-index:7;pointer-events:none;font-size:18px;animation:tshoot linear infinite}
+.ts1{animation-duration:2.2s;animation-delay:-0.3s}
+.ts2{animation-duration:3s;animation-delay:-1.5s}
+@keyframes tshoot{
+  0%  {transform:translateX(18vw) translateY(0);opacity:0}
+  5%  {opacity:1}
+  45% {transform:translateX(52vw) translateY(-80px);opacity:1}
+  70% {transform:translateX(74vw) translateY(-130px);opacity:.7}
+  80% {transform:translateX(76vw) translateY(-138px) scale(2);opacity:0}
+  100%{opacity:0}
+}
+
+.slide{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:28px 20px;z-index:10;pointer-events:none}
+.slide>*{pointer-events:auto}
+
+.top-label{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#5a3e00;background:#ffe066;border:3px solid #222;border-radius:999px;padding:5px 20px;box-shadow:3px 3px 0 #222;animation:pop-in .5s cubic-bezier(.34,1.56,.64,1) both}
+
+.headline-card{background:#fff;border:3.5px solid #222;border-radius:26px;padding:20px 28px;text-align:center;box-shadow:6px 6px 0 #222;animation:pop-in .6s .1s cubic-bezier(.34,1.56,.64,1) both;width:100%;max-width:480px;position:relative}
+.headline-card::before{content:'🐐';position:absolute;top:-20px;left:16px;font-size:28px;animation:wob 2s ease-in-out infinite}
+.headline-card::after{content:'🐔';position:absolute;top:-18px;right:16px;font-size:26px;animation:wob 2s .5s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+
+.headline{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,46px);color:#222;line-height:1.15;margin-bottom:6px}
+.hl-pink{color:#e91e8c;background:#ffe8f5;padding:0 5px;border-radius:7px;display:inline-block;transform:rotate(-2deg)}
+.hl-green{color:#2e7d32;background:#e8f5e9;padding:0 5px;border-radius:7px;display:inline-block;transform:rotate(1.5deg)}
+.subtext{font-size:clamp(12px,1.7vw,15px);color:#888;font-weight:700}
+
+.qr-section{display:flex;flex-direction:column;align-items:center;gap:12px;animation:pop-in .7s .2s cubic-bezier(.34,1.56,.64,1) both}
+.qr-wrapper{position:relative;padding:14px;background:#fff;border:3.5px solid #222;border-radius:20px;box-shadow:6px 6px 0 #e91e8c}
+.qr-wrapper img{display:block;width:clamp(150px,24vw,220px);height:clamp(150px,24vw,220px);object-fit:contain;border-radius:5px}
+.qd{position:absolute;font-size:22px;animation:wob 2s ease-in-out infinite}
+.qd-tl{top:-14px;left:-10px;animation-delay:0s}
+.qd-tr{top:-14px;right:-10px;animation-delay:-.7s}
+.qd-bl{bottom:-14px;left:-10px;animation-delay:-1.3s}
+.qd-br{bottom:-14px;right:-10px;animation-delay:-.4s}
+
+.scan-btn{display:flex;align-items:center;gap:8px;background:#ffe066;border:3px solid #222;border-radius:999px;padding:9px 22px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#222;box-shadow:4px 4px 0 #222}
+.arr{display:inline-block;animation:bx .7s ease-in-out infinite}
+@keyframes bx{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.url-chip{font-size:11px;font-weight:700;color:#bbb;letter-spacing:.1em}
+
+@keyframes pop-in{from{opacity:0;transform:scale(.6) translateY(22px)}to{opacity:1;transform:scale(1) translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="ground"></div>
+<div class="rainbow r1">🌈</div>
+<div class="rainbow r2">🌈</div>
+
+<div class="sky-el cloud c1">☁️</div>
+<div class="sky-el cloud c2">☁️</div>
+<div class="sky-el cloud c3">☁️</div>
+
+<div class="goat g1">🐐</div>
+<div class="goat g2">🐐</div>
+<div class="goat g3">🐐</div>
+<div class="goat g4">🐐</div>
+
+<div class="smoke s1">💨</div>
+<div class="smoke s2">💨</div>
+
+<div class="boom b1">💥</div>
+<div class="boom b2">💥</div>
+<div class="boom b3">💥</div>
+
+<div class="plane p1"><span class="bird">🐔</span><span class="jet">🛩️</span></div>
+<div class="plane p2"><span class="bird">🐔</span><span class="jet">🛩️</span></div>
+<div class="plane p3"><span class="bird">🐓</span><span class="jet">✈️</span></div>
+
+<div class="miss m1">🚀</div>
+<div class="miss m2">💣</div>
+<div class="miss m3">🚀</div>
+
+<div class="tshot ts1">🔥</div>
+<div class="tshot ts2">💥</div>
+
+<div class="tank-lane">
+  <div class="tank-row tr1">
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚂</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚂</span></div>
+  </div>
+  <div class="tank-row tr2">
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐔</span><span class="tb">🚃</span></div>
+    <div class="tank-unit"><span class="tc">🐓</span><span class="tb">🚃</span></div>
+  </div>
+</div>
+
+<div class="slide">
+  <span class="top-label">🚨 Important announcement 🚨</span>
+
+  <div class="headline-card">
+    <h1 class="headline">
+      scan the<br>
+      <span class="hl-pink">QR code</span> or the<br>
+      <span class="hl-green">goats win</span>
+    </h1>
+    <p class="subtext">the chickens are NOT messing around. 🐔💥🐐</p>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-wrapper">
+      <span class="qd qd-tl">🐐</span>
+      <span class="qd qd-tr">🐔</span>
+      <span class="qd qd-bl">🌈</span>
+      <span class="qd qd-br">⭐</span>
+      <img src="images/qr.png" alt="QR Code" />
+    </div>
+    <div class="scan-btn">point your camera here <span class="arr">→</span></div>
+    <span class="url-chip">stikshorror.github.io</span>
+  </div>
+</div>
+
+</body>
+</html>
