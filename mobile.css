@@ -272,21 +272,76 @@
   /* --------------------------------------------------
      MERCH PAGE
      -------------------------------------------------- */
-  .merch-grid, .merch-list {
+  .merch-grid, .merch-list, .shop-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
     width: 100% !important;
   }
-
-  .merch-item, .merch-card {
+ 
+  .merch-item, .merch-card, .product-card {
     display: block !important;
     width: 100% !important;
     float: none !important;
   }
-
-  .merch-item img, .merch-card img { width: 100% !important; object-fit: cover !important; }
-
+ 
+  .merch-item img, .merch-card img, .product-img-wrap, .product-img {
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+ 
+  .product-img-wrap {
+    height: 160px !important;
+  }
+ 
+  .product-img {
+    height: 160px !important;
+  }
+ 
+  .product-body {
+    padding: 12px !important;
+  }
+ 
+  .product-name {
+    font-size: 13px !important;
+  }
+ 
+  .product-desc {
+    font-size: 12px !important;
+  }
+ 
+  .product-price {
+    font-size: 14px !important;
+  }
+ 
+  .btn-add {
+    font-size: 9px !important;
+    padding: 6px 8px !important;
+    white-space: nowrap !important;
+  }
+ 
+  /* Shop header */
+  .shop-header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 14px !important;
+  }
+ 
+  /* Cart panel full-width on mobile */
+  .cart-panel {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    border-radius: 0 !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+  }
   /* --------------------------------------------------
      FORUM PAGE
      -------------------------------------------------- */
