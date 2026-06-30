@@ -16,9 +16,9 @@
 <link rel="icon" type="image/png" href="images/ico.png" />
 
 <!-- Firebase SDK (compat) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 
 <!-- forum.js loaded at bottom of body -->
 </head>
@@ -88,7 +88,7 @@
             <span class="forum-compose-title">&#9670; Post to the Collective</span>
             <div class="forum-compose-fields">
                 <div class="forum-compose-row">
-                    <input type="text" id="postAuthor" placeholder="Display name" maxlength="40" readonly="readonly" />
+                    <input type="text" id="postAuthor" maxlength="40" readonly="readonly" />
                     <select id="postCategory">
                         <option value="encounters">Encounters</option>
                         <option value="theories">Theories</option>
@@ -97,8 +97,8 @@
                         <option value="misc">Misc</option>
                     </select>
                 </div>
-                <input type="text" id="postSubject" placeholder="Subject — what happened, or what you found" maxlength="120" />
-                <textarea id="postBody" placeholder="Describe it. Leave nothing out." maxlength="1800"></textarea>
+                <input type="text" id="postSubject" maxlength="120" />
+                <textarea id="postBody" rows="5" cols="40"></textarea>
                 <div class="forum-compose-actions">
                     <span class="forum-compose-hint" id="charCount">0 / 1800</span>
                     <button class="forum-submit-btn" id="submitPostBtn" onclick="submitPost()">Post</button>
@@ -159,8 +159,8 @@
         <div id="authPanelLogin" class="auth-panel">
             <p class="auth-panel-hint">Welcome back. Sign in to rejoin the collective.</p>
             <div class="auth-fields">
-                <input type="email"    id="loginEmail"    class="auth-input" placeholder="Email address" />
-                <input type="password" id="loginPassword" class="auth-input" placeholder="Password" />
+                <input type="text"    id="loginEmail"    class="auth-input" />
+                <input type="password" id="loginPassword" class="auth-input" />
                 <div class="auth-error" id="loginError"></div>
                 <button class="auth-submit" id="loginBtn" onclick="doLogin()">Sign In</button>
             </div>
@@ -171,9 +171,9 @@
         <div id="authPanelRegister" class="auth-panel" style="display:none">
             <p class="auth-panel-hint">Create an account to post, reply and vote.</p>
             <div class="auth-fields">
-                <input type="text"     id="regUsername" class="auth-input" placeholder="Display name (shown on posts)" maxlength="30" />
-                <input type="email"    id="regEmail"    class="auth-input" placeholder="Email address" />
-                <input type="password" id="regPassword" class="auth-input" placeholder="Password (min 6 characters)" />
+                <input type="text"     id="regUsername" class="auth-input" maxlength="30" />
+                <input type="text"    id="regEmail"    class="auth-input" />
+                <input type="password" id="regPassword" class="auth-input" />
                 <div class="auth-error" id="regError"></div>
                 <button class="auth-submit" id="regBtn" onclick="doRegister()">Create Account</button>
             </div>
