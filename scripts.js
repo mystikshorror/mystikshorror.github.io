@@ -128,3 +128,41 @@ function displayDate()
         today.toDateString();
 }
 
+
+
+// ===== Restore Placeholders for XHTML Compliance =====
+// The W3C Validator rejects the 'placeholder' attribute for XHTML 1.0 Transitional.
+// We inject them via JavaScript so the page remains valid but retains good UX.
+var placeholders = {
+    'postAuthor': 'Display name',
+    'postSubject': 'Subject — what happened, or what you found',
+    'postBody': 'Describe it. Leave nothing out.',
+    'loginEmail': 'Email address',
+    'loginPassword': 'Password',
+    'regUsername': 'Display name (shown on posts)',
+    'regEmail': 'Email address',
+    'regPassword': 'Password (min 6 characters)',
+    'f-name': 'Ahmad bin Ali',
+    'f-phone': '01X-XXXXXXX',
+    'f-email': 'nama@emel.com',
+    'f-addr': 'No. rumah, jalan...',
+    'f-city': 'Kuala Lumpur',
+    'f-post': '50000'
+};
+
+function restorePlaceholders() {
+    for (var id in placeholders) {
+        if (placeholders.hasOwnProperty(id)) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.setAttribute('placeholder', placeholders[id]);
+            }
+        }
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", restorePlaceholders);
+} else {
+    restorePlaceholders();
+}
